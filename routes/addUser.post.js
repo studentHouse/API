@@ -1,10 +1,14 @@
 
 module.exports = (app, User) => {
     app.post("/addUser", async (req, res) => {
-        await User.create({
-            email: "benmacwill@gmail.com",
-            password: "hi"
-        })
-        res.send("created");
+        try {
+            let newUser = await User.create(req.body)
+            res.send(newUser);
+        }
+        catch(error) {
+            let message = error.errors[0].message;
+            message = message ? message : "Unknown error occured.";
+            res.send({message});
+        }
     })
 }
