@@ -11,6 +11,6 @@ User = require("./models/user.model")(sequelize);
 require("./routes/getUsers.get")(app, User);
 require("./routes/addUser.post")(app, User)
 
-app.listen(3000, function() {
-    console.log("Listening on 3000.")
+app.listen(process.env.PORT, function() {
+    console.log(`Listening on ${process.env.PORT}.`)
 })
