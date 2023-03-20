@@ -13,6 +13,8 @@ User = require("./models/user.model")(sequelize);
 require("./routes/getUsers.get")(app, User);
 require("./routes/addUser.post")(app, User)
 
+User.sync({ force: true });
+
 app.listen(process.env.PORT, function() {
     console.log(`Listening on ${process.env.PORT}.`)
 })
