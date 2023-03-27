@@ -20,5 +20,11 @@ module.exports = (sequelize) => {
       // Other model options go here
     }
   );
+
+    User.beforeCreate(async (user, options) => {
+      const hashedPassword = await bcrypt.hash(user.password, 10);
+      user.password = hashedPassword;
+    })
+
   return User;
 };
