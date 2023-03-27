@@ -15,10 +15,14 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      token: {
+        type: DataTypes.STRING,
+        allowNull: true
+      }
     },
     {
       defaultScope: {
-        attributes: { exclude: ['password'] },
+        attributes: { exclude: ['password', 'token'] },
       }
     }
   );

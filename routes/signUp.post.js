@@ -4,7 +4,7 @@ module.exports = (app, User) => {
     app.post("/signUp", async (req, res) => {
         let response = {};
 
-        let user = await User.findOne({email: req.body.email});
+        let user = await User.findOne({where: {email: req.body.email}});
 
         if(user) {
             res.status(400).send("Username taken.");
@@ -20,6 +20,7 @@ module.exports = (app, User) => {
             
             newUser.update({token})
 
+            response.token = token;
             response.message = "User created."
         }
         catch(error) {
