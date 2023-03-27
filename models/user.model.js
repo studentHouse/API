@@ -17,7 +17,9 @@ module.exports = (sequelize) => {
       },
     },
     {
-      // Other model options go here
+      defaultScope: {
+        attributes: { exclude: ['password'] },
+      }
     }
   );
 
