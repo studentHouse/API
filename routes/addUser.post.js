@@ -1,6 +1,6 @@
 
 module.exports = (app, User) => {
-    app.post("/addUser", async (req, res) => {
+    app.post("/signUp", async (req, res) => {
         try {
             let newUser = await User.create(req.body);
             message = "User created."
