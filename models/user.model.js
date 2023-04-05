@@ -23,6 +23,13 @@ module.exports = (sequelize) => {
     {
       defaultScope: {
         attributes: { exclude: ['password', 'token'] },
+      },
+      scopes: {
+        withPass: {
+          // where: {
+          //   deleted: true
+          // }
+        },
       }
     }
   );

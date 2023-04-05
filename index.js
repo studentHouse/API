@@ -15,7 +15,8 @@ User = require("./models/user.model")(sequelize);
 
 require("./middleware/auth.middleware")(secure, User);
 require("./routes/getUsers.get")(secure, User);
-require("./routes/signUp.post")(app, User)
+require("./routes/signUp.post")(app, User);
+require("./routes/login.post")(app, User);
 
 app.use('/', secure);
 
