@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+var jwt = require('jsonwebtoken');
 
 module.exports = (app, User) => {
     app.post("/login", async (req, res) => {
@@ -10,10 +11,18 @@ module.exports = (app, User) => {
             }
 
             if(await bcrypt.compare(req.body.password, user.password)) {
-                
-            }
 
-            res.send({})
+                let token = jwt.sign({
+                    email: user.email
+                }, process.env.SECRET, { expiresIn: '2h'});
+                
+                user.update({token})
+
+                res.send({"token": user.token});
+                return
+            } else {
+                res.send({error: "incorrect password."})
+            }
 
         } catch {
             res.send({error: "An unknown error occured."})

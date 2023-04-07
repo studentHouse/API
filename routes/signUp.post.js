@@ -2,6 +2,14 @@ var jwt = require('jsonwebtoken');
 
 module.exports = (app, User) => {
     app.post("/signUp", async (req, res) => {
+
+        console.log(req.body)
+
+        if(!req.body.email) {
+            res.status(400).send({"message": "email is required."});
+            return;
+        }
+
         let response = {};
 
         let user = await User.findOne({where: {email: req.body.email}});
