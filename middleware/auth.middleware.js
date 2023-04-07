@@ -2,7 +2,7 @@ var jwt = require('jsonwebtoken');
 
 module.exports = (router, User) => {
     router.use(async (req, res, next) => {
-        let token = req.query.token;
+        let token = req.query.token || req.body.token;
 
         try {
             let tokenContent = jwt.verify(token, process.env.SECRET);
