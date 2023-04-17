@@ -6,7 +6,7 @@ module.exports = (app, User) => {
         console.log(req.body)
 
         if(!req.body.email) {
-            res.status(400).send({"message": "email is required."});
+            res.status(400).send({"error": "email is required."});
             return;
         }
 
@@ -15,7 +15,7 @@ module.exports = (app, User) => {
         let user = await User.findOne({where: {email: req.body.email}});
 
         if(user) {
-            res.status(400).send("Username taken.");
+            res.status(400).send({"error": "Username taken."});
             return
         }
 
