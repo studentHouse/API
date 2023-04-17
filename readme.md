@@ -13,7 +13,7 @@ Returns an error message if provided credentials are incorrect, and a session to
 
 #### Example Request
 ```json
-http://movein-api.azuresites.net/login
+https://movein-api.azurewebsites.net/login
 {
     "email": "john@test.com",
     "password": "Password1"
@@ -41,7 +41,7 @@ Returns a login token or error message.
 
 #### Example Request
 ```json
-http://movein-api.azuresites.net/signup
+https://movein-api.azurewebsites.net/signup
 {
     "email": "john@test.com",
     "password": "Password2"
@@ -69,7 +69,7 @@ Requires the current token be passed with the request as a URL argument.
 
 #### Example Request
 ```
-http://movein-api.azuresites.net/logout?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlbm5ld2VyQHdpbGwuY29tIiwiaWF0IjoxNjc5OTMzNTY3LCJleHAiOjE2Nzk5NDA3Njd9.9OtOWTcR2nAxfevGVhd5RShk5YO1SYLNxCB_QdaszaI
+https://movein-api.azurewebsites.net/logout?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlbm5ld2VyQHdpbGwuY29tIiwiaWF0IjoxNjc5OTMzNTY3LCJleHAiOjE2Nzk5NDA3Njd9.9OtOWTcR2nAxfevGVhd5RShk5YO1SYLNxCB_QdaszaI
 ```
 
 #### Example Response
@@ -91,7 +91,7 @@ Returns a list of all users currently enrolled on the platform.
 
 #### Example Request
 ```json
-http://movein-api.azuresites.net/getusers?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlbm5ld2VyQHdpbGwuY29tIiwiaWF0IjoxNjc5OTMzNTY3LCJleHAiOjE2Nzk5NDA3Njd9.9OtOWTcR2nAxfevGVhd5RShk5YO1SYLNxCB_QdaszaI
+https://movein-api.azurewebsites.net/getusers?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJlbm5ld2VyQHdpbGwuY29tIiwiaWF0IjoxNjc5OTMzNTY3LCJleHAiOjE2Nzk5NDA3Njd9.9OtOWTcR2nAxfevGVhd5RShk5YO1SYLNxCB_QdaszaI
 ```
 
 #### Example Response
