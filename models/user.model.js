@@ -6,6 +6,31 @@ module.exports = (sequelize) => {
     "User",
     {
       // Model attributes are defined here
+      userID: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+      },
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      university: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      course: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      bio: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
       email: {
         type: DataTypes.STRING,
         allowNull: false,

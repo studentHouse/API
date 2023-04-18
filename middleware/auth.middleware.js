@@ -7,12 +7,14 @@ module.exports = (router, User) => {
         try {
             let tokenContent = jwt.verify(token, process.env.SECRET);
 
-            try {
-                let user = await User.findOne({where: {email: tokenContent.email, token: token}});
+            let user = await User.findOne({where: {email: tokenContent.email, token: token}});
+            console.log(user)
+            
+            if (user) {
                 req.user = user;
                 next()
             }
-            catch {
+            else {
                 res.status(400).send({message: "User not found."});
                 return
             }
